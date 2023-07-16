@@ -7,3 +7,4 @@ class Config(object):
         'postgres://', 'postgresql://') or \
         'sqlite:///' + os.path.join(basedir, 'database.db')
     SQLALCHEMY_TRACK_MODIFICATIONS = False
+    REMOTE_URL = os.environ.get('REMOTE_URL')

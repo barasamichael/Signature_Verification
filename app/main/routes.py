@@ -11,7 +11,7 @@ from app.main import bp
 from werkzeug.utils import secure_filename
 
 basedir = os.path.abspath(os.path.dirname(__file__))
-api_url = 'https://6cf6-35-189-15-177.ngrok-free.app/'
+api_url = current_app.config['REMOTE_URL']
 UPLOAD_FOLDER = 'static/images'
 ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'gif'}
 
