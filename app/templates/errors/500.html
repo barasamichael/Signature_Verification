@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block app_content %}
+<style>
+    body {
+        background-color: #f8f9fa;
+        font-family: Arial, sans-serif;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        margin: 0;
+    }
+
+    h1 {
+        color: #333;
+        font-size: 36px;
+        margin-bottom: 20px;
+    }
+
+    p {
+        color: #777;
+        font-size: 18px;
+        margin-bottom: 10px;
+    }
+
+    a {
+        color: #007bff;
+        text-decoration: none;
+    }
+
+    a:hover {
+        text-decoration: underline;
+    }
+</style>
+
+<h1>An Unexpected Error Has Occurred</h1>
+<p>The administrator has been notified. Apologies for the inconvenience!</p>
+<p><a href="{{ url_for('main.index') }}">Click to go to the homepage</a></p>
+{% endblock %}

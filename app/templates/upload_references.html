@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block title %}		
+    Upload Signatures
+{% endblock %}
+
+{% block app_content %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.9.3/dropzone.min.css">
+    <div class="container">
+        <h1>Upload Signature</h1>
+        <form action="{{ url_for('main.upload_references') }}" class="dropzone" id="reference-dropzone">
+        <div class="fallback">
+            <input name="references[]" type="file" multiple>
+        </div>
+    </form>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.9.3/min/dropzone.min.js"></script>
+   <script>
+        // Configure Dropzone
+        Dropzone.options.referenceDropzone = {
+            paramName: "references[]", // Name of the input field
+            maxFiles: 5, // Maximum number of files
+            acceptedFiles: "image/*", // Only accept image files
+            dictDefaultMessage: "Drop reference images here or click to upload", // Default message
+            dictMaxFilesExceeded: "You can only upload up to 5 reference images.", // Error message for exceeding maxFiles
+            init: function () {
+                this.on("success", function (file) {
+                    // Refresh the page after successful upload
+                    location.reload();
+                });
+            }
+        };
+    </script>
+{% endblock %}

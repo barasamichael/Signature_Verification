@@ -1,0 +1,91 @@
+{% extends 'bootstrap/base.html' %}
+
+{% block title %}
+{% if title %}{{ title }} | SignaGuard{% else %}{% endif %}
+{% endblock %}
+
+{% block navbar %}
+<style>
+.wrapper {
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+}
+
+.navbar {
+	margin-bottom: 0;
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+
+.alert {
+	width: 70%;
+	background-color: #cfb53b;
+	display: flex;
+	justify-content: center;
+	margin: 10px auto;
+}
+</style>
+<nav class="navbar navbar-default fixed-top">
+	<div class="container">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="{{ url_for('main.index') }}">SignaGuard</a>
+		</div>
+		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			<ul class="nav navbar-nav">
+				<li><a href="{{ url_for('main.index') }}">Home</a></li>
+			</ul>
+			<ul class="nav navbar-nav navbar-right">
+				{% if current_user.is_anonymous %}
+				<li><a href="{{ url_for('auth.login') }}">Sign In</a></li>
+				{% else %}
+				<li><a href="{{ url_for('main.upload_references') }}">Upload Reference Images</a></li>
+				<li><a href="{{ url_for('main.upload_signature') }}">Verify Signature</a></li>
+				<li><a href="{{ url_for('auth.logout') }}">Sign Out</a></li>
+				{% endif %}
+			</ul>
+		</div>
+	</div>
+</nav>
+{% endblock %}
+
+{% block content %}
+<style>
+</style>
+<div class="container content-wrapper">
+	{% with messages = get_flashed_messages() %}
+	{% if messages %}
+	{% for message in messages %}
+	<div class="alert" style = "align:center;" role="alert">{{ message }}</div>
+	{% endfor %}
+	{% endif %}
+	{% endwith %}
+
+	<div class = "wrapper">{% block app_content %}{% endblock %}</div>
+</div>
+<style>
+.footer {
+	background-color: #000;
+	color: #fff;
+	padding: 15px 0;
+	text-align: center;
+	bottom: 0;
+	width: 100%;
+}
+</style>
+<footer class="footer">
+	<div class="container">
+		<p>&copy; 2023 SignaGuard. All rights reserved.</p>
+	</div>
+</footer>
+{% endblock %}
+
+{% block scripts %}
+{{ super() }}
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Upload Signature
+{% endblock %}
+
+{% block app_content %}
+<div class="container">
+	<h1>Upload Signature</h1>
+	{% if prediction %}
+	{% if prediction >= 0.5 %}
+	<h3>The signature is authentic</h3>
+	{% else %}
+	<h3>Alert!!! The signature is forged</h3>
+	{% endif %}
+	{% endif %}
+	<form id = "signatureDropzone" action="{{ url_for('main.upload_signature') }}" enctype="multipart/form-data" method = "post">
+		<div class="fallback">
+			<input name="file" type="file">
+		</div>
+		<div style = "margin-top: 40px;">
+			<input class = "btn btn-primary" type = "submit">
+		</div>
+	</form>
+</div>
+{% endblock %}

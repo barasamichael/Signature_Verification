@@ -1,0 +1,101 @@
+{% extends 'base.html' %}
+
+{% block app_content %}
+    <style>
+        header {
+		margin-top: 20px;
+            padding: 50px 0;
+        }
+
+        h1.display-4 {
+            font-size: 36px;
+            font-weight: bold;
+            margin-bottom: 30px;
+	    color: #fff;
+        }
+
+        section {
+            margin-bottom: 40px;
+        }
+
+        h2 {
+            font-size: 28px;
+            margin-bottom: 20px;
+	    color: #f00;
+        }
+
+        h3 {
+            font-size: 24px;
+            margin-bottom: 10px;
+	    color: brown;
+        }
+
+        p {
+            line-height: 1.6;
+        }
+
+        .btn-lg {
+            padding: 12px 24px;
+            font-size: 18px;
+        }
+    </style>
+    <header class="jumbotron jumbotron-fluid text-center bg-primary text-white"  style = "background-color: #cfb53b">
+        <div class="container">
+            <h1 class="display-4">Why Choose Our Signature Verification System?</h1>
+        </div>
+    </header>
+
+    <div class="container">
+        <section>
+            <h2 class="text-center">Ensure Document Authenticity and Trust</h2>
+            <p>
+                In today's digital age, ensuring the authenticity and integrity of signatures is more important than ever. Our Signature Verification System provides a reliable and efficient solution for businesses and organizations that rely on document verification. Here are some compelling reasons why you should choose our system:
+            </p>
+        </section>
+
+        <section>
+            <h3>Enhanced Security</h3>
+            <p>
+                Our system employs advanced algorithms and machine learning techniques to detect forged or manipulated signatures, reducing the risk of fraudulent activities. By implementing state-of-the-art security measures, we prioritize the protection of your valuable documents.
+            </p>
+        </section>
+
+        <section>
+            <h3>Accurate and Reliable</h3>
+            <p>
+                With a high degree of accuracy, our system can quickly verify the legitimacy of signatures, minimizing errors and false positives. You can trust our technology to consistently deliver precise and dependable results, giving you peace of mind.
+            </p>
+        </section>
+
+        <section>
+            <h3>Efficient Workflow</h3>
+            <p>
+                By automating the verification process, our system saves time and resources, allowing your organization to handle document verification more efficiently. Streamlined workflows and reduced manual effort enable you to focus on other critical tasks, improving overall productivity.
+            </p>
+        </section>
+
+        <section>
+            <h3>Cost Savings</h3>
+            <p>
+                By reducing the need for manual signature verification, our system helps cut down operational costs associated with traditional verification methods. Eliminating time-consuming manual processes and minimizing errors can result in significant cost savings for your organization.
+            </p>
+        </section>
+
+        <section>
+            <h3>User-Friendly Interface</h3>
+            <p>
+                Our system features an intuitive and user-friendly interface, making it easy for your staff to navigate and utilize the verification tools effectively. The user interface is designed with simplicity and efficiency in mind, ensuring a seamless experience for your team.
+            </p>
+        </section>
+
+        <section>
+            <h3>Experience the Benefits Today</h3>
+            <p>
+                With our Signature Verification System, you can ensure the integrity of your documents, protect against fraud, and maintain trust with your customers and partners. Don't wait to take advantage of the benefits our system offers.
+            </p>
+            <p class="text-center">
+                <a href="{{ url_for('auth.login') }}" class="btn btn-primary btn-lg">Get Started Today</a>
+            </p>
+        </section>
+    </div>
+{% endblock %}
